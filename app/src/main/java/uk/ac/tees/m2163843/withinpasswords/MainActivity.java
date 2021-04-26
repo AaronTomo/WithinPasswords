@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button submitButton = (Button)findViewById(R.id.loginButton);
+        Button mapsButton = (Button)findViewById(R.id.sos);
         username = (EditText)findViewById(R.id.usernameLogin);
         password = (EditText)findViewById(R.id.userPassword);
 
@@ -34,6 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(MainActivity.this, "Nope!!", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        mapsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mapsView = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(mapsView);
             }
         });
 
