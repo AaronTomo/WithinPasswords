@@ -7,7 +7,7 @@
     tools:context=".MainActivity3">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/regUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/regPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
@@ -32,10 +32,10 @@
         android:text="Password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/regUsername" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/regPassword2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
@@ -46,10 +46,10 @@
         android:text="Confirm password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        app:layout_constraintTop_toBottomOf="@+id/regPassword" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/signUpButton"
         android:layout_width="126dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="159dp"
@@ -58,6 +58,6 @@
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/regPassword2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

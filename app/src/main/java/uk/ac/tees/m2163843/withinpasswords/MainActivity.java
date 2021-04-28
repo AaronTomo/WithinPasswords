@@ -14,6 +14,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
+    private final String USER_CREDENTIALS = "shared_credentials";
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,32 +28,48 @@ public class MainActivity extends AppCompatActivity {
         username = (EditText)findViewById(R.id.usernameLogin);
         password = (EditText)findViewById(R.id.userPassword);
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences("uk.ac.tees.m2163843.withinpasswords", Context.MODE_PRIVATE);
-        sharedPreferences.edit().putString("username", "Aaron").apply();
-        sharedPreferences.getString("username", "");
+        db = new Database(this);
+
+        //register button---------------------------------------------------
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent nextscreen = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(nextscreen);
             }
         });
+        //-------------------------------------------------------------------
 
+        //Login button-------------------------------------------------------
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (username.getText().toString().equals("user") && password.getText().toString().equals("password")){
+
+                //SharedPreferences credentials = getSharedPreferences(USER_CREDENTIALS, Context.MODE_PRIVATE);
+                //String strUsername = credentials.getString("Username", null);
+                //String strPassword = credentials.getString("Password", null);
+                //if (strUsername != null && strPassword != null && strUsername.equalsIgnoreCase(String.valueOf(username)))
+
+                String usr = username.getText().toString().trim();
+                String pwd = password.getText().toString().trim();
+                Boolean res= db.checkUser(usr, pwd);
+
+                if (res == true){
                     Toast.makeText(MainActivity.this, "Correct!!", Toast.LENGTH_SHORT).show();
                     Intent nextScreen = new Intent(MainActivity.this, MainActivity2.class);
                     startActivity(nextScreen);
 
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Nope!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Invalid password", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+        //-------------------------------------------------------------------
+
+        //Maps button--------------------------------------------------------
 
         mapsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(mapsView);
             }
         });
+        //-------------------------------------------------------------------
 
     }
 
