@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -42,7 +43,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         //sets the default fragment
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_layout, new StartFragment()).commit();
 
     }
 
@@ -55,7 +56,8 @@ public class MainActivity2 extends AppCompatActivity {
             switch (item.getItemId()){
 
                 case R.id.itemFragment:
-                    selectedFragment = new ItemFragment();
+                    Intent nextscreen = new Intent(MainActivity2.this, passwordHome.class);
+                    startActivity(nextscreen);
                     break;
 
                 case R.id.mapsFragment:
