@@ -44,6 +44,8 @@ public class Database extends SQLiteOpenHelper {
         return res;
     }
 
+//this checks if the password is the same as the confirm password
+
     public boolean checkUser(String username, String Password){
         String[] columns = {COL_1};
         SQLiteDatabase db = getReadableDatabase();
